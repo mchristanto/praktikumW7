@@ -30,25 +30,72 @@ namespace praktikumW7
         {
 
         }
-        
+
         private void btnKonversi_Click(object sender, EventArgs e)
         {
-            var index = 0;
+            string textSave = "";
+            string hurufPertama = "";
+            string hurufKedua = "";
+            int indexArray = 0;
+            int indexArray2 = 0;
+            int selisih = 0;
+            char[] arrayHuruf = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+
+            textSave = tBoxKalimat.Text.ToUpper();
+            hurufPertama = tBoxHuruf.Text.ToUpper();
+            hurufKedua = tBoxMenjadi.Text.ToUpper();
+           textSave.ToCharArray();
+            hurufPertama.ToCharArray();
+            hurufKedua.ToCharArray();
+            for (int i = 0; i < arrayHuruf.Length; i++)
+            {
+                if (hurufPertama == arrayHuruf[i].ToString())
+                    indexArray = i;
+            }
+            for (int j = 0; j < arrayHuruf.Length; j++)
+            {
+                if (hurufKedua == arrayHuruf[j].ToString())
+                    indexArray2 = j;
+            }
+            if (indexArray + selisih < 0)
+            {
+                selisih = indexArray + selisih;
+                selisih = 26 + selisih;
+               // selisih = selisih * -1;
+            }
+
+            else 
+            {
+                selisih = indexArray + selisih;
+                if (selisih >= 26)
+                {
+                    selisih = selisih - 26;
+                }
+               
+             }
+            lblOutput.Text = tBoxKalimat.Text.ToUpper();
+            /*var index = 0;
+
             char[] Huruf = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
             int simpanindex = 0;
-            for (int j = 0; j < Huruf.Length; j++)
+
+            string boxHuruf = tBoxHuruf.Text;
+            char[] arrayBoxHuruf = boxHuruf.ToCharArray();
+
+            string boxMenjadi = tBoxMenjadi.Text;
+            char[] arrayBoxMenjadi = boxMenjadi.ToCharArray();
+
+            for (int i = 0; i < Huruf.Length; i++)
             {
-                if(Huruf[j] == tBoxKalimat.Text[0])
+                if(Huruf[i] == tBoxKalimat.Text[0])
                 {
-                    simpanindex = j;
+                    simpanindex = i;
                 }
-                char hurufku1 = tBoxHuruf.Text;
-                char hurufku2 = tBoxMenjadi.Text;
-                int selisih = hurufku2 - hurufku1;
-                MessageBox.Show(selisih.ToString());
-            }
-            //lblOutput = Array.IndexOf(Huruf, value);
-            lblOutput.Text = tBoxKalimat.Text;
+               
+                int selisih = boxMenjadi - boxHuruf;
+                
+            } */
+            
         }
 
         private void lblOutput_Click(object sender, EventArgs e)
